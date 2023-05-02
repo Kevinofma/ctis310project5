@@ -103,6 +103,27 @@ public class Chemistry
         for (int i = 0; i < ammonia.length; i++) {
             System.out.println(aMoles[i] + " moles of ammonia: " + ammonia[i].calculateTotalMass(ammonia[i].getMoles()) + " grams");
         }
+
+        //create an array of 10 molecules
+        Molecule[] molecules = new Molecule[10];
+        // fill the array with 10 random molecules using a for loop
+        for (int i = 0; i < molecules.length; i++) {
+            molecules[i] = new Molecule();
+        }
+
+        // Print out the unsorted array of molecules and their masses using polymorphMass()
+        System.out.println("\nSome Random Molecules: ");
+        for (int i = 0; i < molecules.length; i++) {
+            // get the name of the molecule
+            String name = molecules[i].getName();
+            // get the formula of the molecule
+            String formula = molecules[i].getFormula();
+            // get the mass of the molecule
+            molecules[i].polymorphMass(formula);
+            // print out the name and mass of the molecule
+            System.out.println(name + ": " + molecules[i].getMass() + " grams");
+        }
+
         
 
 

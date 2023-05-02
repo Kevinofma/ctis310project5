@@ -1,7 +1,9 @@
 package edu.guilford;
 
+import java.util.ArrayList;
+
 // public class Molecule implements Comparable<Molecule>{
-public class Molecule {
+public class Molecule extends ArrayList<Molecule>{
     //attributes
     private String name;
     private String formula;
@@ -11,9 +13,9 @@ public class Molecule {
     //constructor
     public Molecule() {
         // choose a random molecule from 7 possible molecules
-        String[] name = {"Water", "Carbon Dioxide", "Methane", "Ethane", "Propane", "Nitrogen Dioxide", "Ammonia"};
-        String[] formula = {"H2O", "CO2", "CH4", "C2H6", "C3H8", "NO2", "NH3"};
-        int random = (int) (Math.random() * 7);
+        String[] name = {"Water", "Ethanol", "Ammonia"};
+        String[] formula = {"H2O","C2H6O", "NH3"};
+        int random = (int) (Math.random() * 3);
         this.name = name[random];
         this.formula = formula[random];
         this.mass = calculateMass(formula[random]);
@@ -85,6 +87,26 @@ public class Molecule {
             }
         }
         mass = Cmass + Hmass + Omass + Nmass;
+        return mass;
+    }
+
+    //Method does the same as above but demonstrates polymorphism
+    public double polymorphMass(String formula) {
+        formula = this.getFormula();
+        switch (formula) {
+            case "H2O":
+                mass = 18.015;
+                break;
+            case "C2H6O":
+                mass = 46.069;
+                break;
+            case "NH3":
+                mass = 17.031;
+                break;
+            default:
+                mass = 0;
+                break;
+        }
         return mass;
     }
 
